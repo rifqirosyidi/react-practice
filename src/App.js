@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "./components/Header"
 import Body, { AnotherBody } from "./components/Body"
 import './App.css';
+import Counter from './components/Counter';
 
 
 function App() {
@@ -30,7 +31,9 @@ function App() {
         text2={"Text Two"}
         myFunc={add} />
       
+      <Counter initialVal={0} />
       <AnotherBody />
+
     </div>
   );
 }
