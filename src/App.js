@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+function Body() {
   return (
-    <div className="App">
+    <p className='app-intro'>This is Body Tags</p>
+  )
+}
+
+
+class Header extends Component {
+  render() {
+    return (
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hi
         </p>
         <a
           className="App-link"
@@ -19,6 +27,15 @@ function App() {
           Learn React
         </a>
       </header>
+    )
+  }
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Body />
     </div>
   );
 }
