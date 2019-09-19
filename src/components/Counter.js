@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
 
-    constructor(props){
-        super(props)
+    state = {
+        count: 0
+    }
 
-        this.state = {
-            count: this.props.initialVal
-        }
+    componentWillUnmount() {
+        console.log("Unmount")
+    }
+
+    componentDidMount(){
+        console.log("Mounting")
     }
     
     BtnIncrement = () => {

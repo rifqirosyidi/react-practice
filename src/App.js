@@ -8,41 +8,22 @@ import Header from './components/Header';
 class App extends Component {
 
   state = {
-    isVisible: true,
-    whichComponentToShow: "ImageSlider"
+    isVisible: true
   }
 
   render(){
-    if (this.state.whichComponentToShow === "ImageSlider") {
-      return(
-        <div>
-          <ImageSlider />
-          <button 
-            onClick={ () => {
-              this.setState({ whichComponentToShow: "Counter"});
-            }}
-          >Counter</button>
-        </div>
-      )
-    } else if (this.state.whichComponentToShow === "Counter") {
-      return(
-        <div>
+    return(
+      <div className="App">
+        <div className={this.state.isVisible ? "visible" : "hidden"}>
           <Counter />
-          <button 
-            onClick={() => {
-              this.setState({ whichComponentToShow: "Header"});
+        </div>
+        <button 
+            onClick={ () => {
+              this.setState({ isVisible: !this.state.isVisible});
             }}
-          >Header</button>
-        </div>
-      )
-    } else if (this.state.whichComponentToShow === "Header") {
-      return(
-        <div>
-          <Header />
-        </div>
-      )
-    
-    }
+          >Toggle</button>
+      </div>
+    )
   }
 }
 
