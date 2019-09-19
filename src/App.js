@@ -1,25 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import Counter from './components/Counter';
+import MyForm from './components/MyForm';
 
 
 class App extends Component {
-
-  state = {
-    isVisible: true
-  }
-
   render(){
     return(
       <div className="App">
-        <div className={this.state.isVisible ? "visible" : "hidden"}>
-          <Counter />
-        </div>
-        <button 
-            onClick={ () => {
-              this.setState({ isVisible: !this.state.isVisible});
-            }}
-          >Toggle</button>
+        <MyForm />
       </div>
     )
   }
