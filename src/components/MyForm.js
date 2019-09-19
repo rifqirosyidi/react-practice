@@ -9,42 +9,46 @@ class MyForm extends Component {
         select: 'Hello'
     }
 
-    handleChangeName = (event) => {
-        this.setState({ name: event.target.value })
+    handleChange = (event) => {
+        const isCheckbox = event.target.type === "checkbox";
+        this.setState({ [event.target.name]: isCheckbox ? event.target.checked : event.target.value })
     }
 
-    handleChangeFavoriteFruit = (event) => {
-        this.setState({ fruit: event.target.value })
-    }
-
-    handleCheck = (event) => {
-        this.setState({ rememberMe: event.target.checked })
-    }
-
-    handleSelect = (event) => {
-        this.setState({ select: event.target.value })
-    }
-
-    handleSubmit = () => {
+    handleSubmit = (event) => {
+        event.preventDefault()
         console.log(this.state)
     }
 
     render() {
         return (
             <div>
-                <input value={this.state.name} onChange={this.handleChangeName} />
-                <input type="checkbox" checked={this.state.rememberMe} onChange={this.handleCheck} />
-                <textarea value={this.state.fruit} onChange={this.handleChangeFavoriteFruit} />
-
-                <div>
-                    <select value={this.state.select} onChange={this.handleSelect}>
-                        <option>Hello</option>
-                        <option>There</option>
-                        <option>It</option>
-                        <option>Works</option>
-                    </select>
-                </div>
-                <button onClick={this.handleSubmit}>Sumbit</button>
+                <form onSubmit={this.handleSubmit} >
+                    <input 
+                        name="name"
+                        value={this.state.name} 
+                        onChange={this.handleChange} />
+                    <textarea 
+                        name="fruit"
+                        value={this.state.fruit} 
+                        onChange={this.handleChange} />
+                    <input 
+                        name="rememberMe"
+                        type="checkbox" 
+                        checked={this.state.rememberMe} 
+                        onChange={this.handleChange} />
+                    <div>
+                        <select 
+                            name="select"
+                            value={this.state.select} 
+                            onChange={this.handleChange}>
+                                <option>Hello</option>
+                                <option>There</option>
+                                <option>It</option>
+                                <option>Works</option>
+                        </select>
+                    </div>
+                    <button type="submit">Sumbit</button>
+                </form>
             </div>
         );
     }
